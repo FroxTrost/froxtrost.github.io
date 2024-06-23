@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://froxtrost.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://froxtrost.github.io/" rel="alternate" type="text/html" /><updated>2024-06-23T13:41:35+00:00</updated><id>https://froxtrost.github.io/feed.xml</id><title type="html">Rajat’s Notes</title><subtitle>The personal website of Rajat Chahar</subtitle><author><name>Rajat Chahar</name></author><entry><title type="html">Test It</title><link href="https://froxtrost.github.io/test-it.html" rel="alternate" type="text/html" title="Test It" /><published>2024-06-23T00:00:00+00:00</published><updated>2024-06-23T00:00:00+00:00</updated><id>https://froxtrost.github.io/test-it</id><content type="html" xml:base="https://froxtrost.github.io/test-it.html"><![CDATA[<h3 id="welcome-to-my-sample-blog-post">Welcome to My Sample Blog Post</h3>
+
+<p>This is a sample blog post to demonstrate various Markdown elements in Jekyll.</p>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Here’s a brief introduction to what this post will cover:</p>
+
+<ul>
+  <li>Headings</li>
+  <li>Lists</li>
+  <li>Code Snippets</li>
+  <li>Images</li>
+  <li>Links</li>
+</ul>
+
+<h3 id="headings">Headings</h3>
+
+<p>Headings are an important part of any blog post. They help structure your content and make it easier to read.</p>
+
+<h3 id="subheading-level-3">Subheading Level 3</h3>
+
+<p>This is a third-level subheading. Let’s add some more details here.</p>
+
+<h4 id="subheading-level-4">Subheading Level 4</h4>
+
+<p>This is a fourth-level subheading. Even more details can go here.</p>
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="unordered-list">Unordered List</h3>
+
+<ul>
+  <li>Item 1</li>
+  <li>Item 2
+    <ul>
+      <li>Subitem 2.1</li>
+      <li>Subitem 2.2</li>
+    </ul>
+  </li>
+  <li>Item 3</li>
+</ul>
+
+<h3 id="ordered-list">Ordered List</h3>
+
+<ol>
+  <li>First item</li>
+  <li>Second item
+    <ol>
+      <li>Subitem 2.1</li>
+      <li>Subitem 2.2</li>
+    </ol>
+  </li>
+  <li>Third item</li>
+</ol>
+
+<h2 id="code-snippets">Code Snippets</h2>
+
+<h3 id="javascript-code">JavaScript Code</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello, </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nf">greet</span><span class="p">(</span><span class="dl">"</span><span class="s2">World</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/image.png" alt="This is sample image test" /></p>]]></content><author><name>Rajat Chahar</name></author><category term="notes" /><category term="Self" /><category term="Hello" /><category term="Homelelab" /><category term="AWS" /><category term="Life" /><category term="Science" /><summary type="html"><![CDATA[Welcome to My Sample Blog Post]]></summary></entry></feed>

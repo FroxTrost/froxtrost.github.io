@@ -1,0 +1,40 @@
+/* Align tags to the right */
+.tags {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Remove default list styling */
+.tag-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Style each tag item */
+.tag-item {
+    margin: 0.2rem;
+    padding: 0.1rem 0.2rem;
+    border-bottom: 0.1rem solid black;
+}
+
+/* Style the tag links */
+.tag-item a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+}
+
+.tag-item a:hover {
+    color: #007bff;
+}
+
+.page-title {
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
