@@ -1,0 +1,21 @@
+<!-- {% if page.tags %}
+<div class="tags">
+    {% for tag in page.tags %}
+    <span>
+        <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
+    </span>
+    {% endfor %}
+</div>
+{% endif %} -->
+
+{% if page.tags %}
+<div class="tags">
+    <ul class="tag-list">
+        {% for tag in page.tags %}
+        <li class="tag-item">
+            <a href="{{ site.baseurl }}/tags#{{ tag | slugify }}">{{ tag }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
