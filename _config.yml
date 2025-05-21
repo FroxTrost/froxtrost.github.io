@@ -1,9 +1,11 @@
-title: Rajat's Notes # name of the site
-author: Rajat Chahar # name of site's author
-email: rajatkumarchahar@gmail.com # email of site's author
-url: https://froxtrost.github.io # root address of the site
-baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
-description: The personal website of Rajat Chahar # description of the site (multiple lines allowed)
+title: Rajat Chahar
+email: rajatkumarchahar@gmail.com
+description: "Hello! I'm Rajat and you're currently exploring my tiny corner of the internet. I use this space to project my ideas and express my obsessions."
+baseurl: ""
+url: "https://froxtrost.github.io"
+twitter: https://twitter.com/yourusername
+github: https://github.com/froxtrost
+profile_image: /assets/images/profile.jpg
 
 permalink: /:slug.html
 
@@ -18,7 +20,7 @@ theme_config:
   show_description: false # show blog description in home page
 
 sass:
-  style: :compressed
+  style: compressed
 
 markdown: kramdown
 highlighter: rouge

@@ -2,37 +2,86 @@
 layout: default
 ---
 
-<header>
-    {% assign title_parts = site.title | split: " " %}
-    <h1>
-        {% for part in title_parts %} {% if forloop.first %}
-        <a href="{{ '/about' | relative_url }}">{{ part }}</a>
-        {% else %}
-        <a href="{{ '/tags' | relative_url }}">{{ part }}</a>
-        {% endif %} {% endfor %}
-    </h1>
-    {%-if site.theme_config.show_description-%}
-    <p>{{ site.description }}</p>
-    {%-endif-%}
-</header>
+<div class="home-container">
+    <div class="bio-section">
+        <div class="bio-content">
+            <p class="intro-text">{{ site.description }}</p>
+            
+            <div class="summary-section">
+                <h2>SUMMARY</h2>
+                <ul class="summary-list">
+                    {% for item in site.data.summary %}
+                    <li>{{ item.text }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-<body>
-    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date |
-    date: '%Y'" %} {% for year in posts_by_year %}
-    <h2>{{ year.name }}</h2>
-    {% assign posts_by_month = year.items | group_by_exp: "post", "post.date |
-    date: '%B'" %} {% for month in posts_by_month %}
-    <h3>{{ month.name }}</h3>
-    <ul>
-        {% for post in month.items %} {% if post.publish %}
-        <li>
-            <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date:
-            "%Y-%m-%d" }}
-        </li>
-        {% endif %} {% endfor %}
-    </ul>
-    {% endfor %} {% endfor %}
-</body>
+            <div class="social-links">
+                {% if site.email %}
+                <a href="mailto:{{ site.email }}" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                {% endif %}
+                {% if site.twitter %}
+                <a href="{{ site.twitter }}" class="social-icon" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 4.01C21 4.5 20.02 4.69 19 4.82C20.07 4.27 20.85 3.33 21.23 2.26C20.24 2.8 19.17 3.16 18.03 3.36C17.12 2.37 15.81 1.91 14.5 1.91C11.83 1.91 9.72 4.03 9.72 6.69C9.72 7.01 9.75 7.33 9.82 7.64C5.91 7.47 2.39 5.55 0.974 2.67C0.527 3.33 0.374 4.09 0.374 4.89C0.374 6.37 1.12 7.7 2.27 8.46C1.44 8.44 0.63 8.21 0 7.85V7.9C0 10.27 1.77 12.25 4.09 12.62C3.65 12.73 3.19 12.79 2.71 12.79C2.37 12.79 2.04 12.77 1.72 12.71C2.38 14.66 4.21 16.04 6.37 16.07C4.68 17.35 2.53 18.11 0.207 18.11C-0.22 18.11 -0.647 18.09 -1.07 18.04C1.13 19.41 3.71 20.19 6.47 20.19C14.5 20.19 18.83 13.62 18.83 7.92C18.83 7.75 18.83 7.58 18.82 7.41C19.82 6.78 20.7 5.96 21.39 5.01L22 4.01Z" fill="currentColor"/>
+                    </svg>
+                </a>
+                {% endif %}
+                {% if site.github %}
+                <a href="{{ site.github }}" class="social-icon" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.477 2 2 6.477 2 12C2 16.991 4.657 20.128 8.438 21.879V18.89C8.438 18.89 8.438 18.89 8.438 18.89C5.927 18.89 5.47 17.28 5.47 17.28C5.47 16.38 6.027 16.13 6.027 16.13C6.027 16.13 7.027 16.13 7.027 16.13C7.027 16.13 7.777 17.13 7.777 17.13C8.677 18.13 9.827 17.28 9.827 17.28C9.927 16.38 10.577 16.13 10.577 16.13C7.777 15.88 6.027 14.63 6.027 12.13C6.027 11.13 6.477 10.13 7.177 9.38C7.077 9.13 6.777 8.13 7.277 6.63C7.277 6.63 8.177 6.38 9.827 7.63C10.577 7.38 11.327 7.28 12.077 7.28C12.827 7.28 13.577 7.38 14.327 7.63C15.977 6.38 16.877 6.63 16.877 6.63C17.377 8.13 17.077 9.13 16.977 9.38C17.677 10.13 18.127 11.13 18.127 12.13C18.127 14.63 16.377 15.88 13.577 16.13C13.827 16.38 14.077 16.88 14.077 17.63V21.88C17.857 20.128 20.514 16.991 20.514 12C20.514 6.477 16.037 2 10.514 2H12Z" fill="currentColor"/>
+                    </svg>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% if site.profile_image %}
+        <div class="profile-image">
+            <img src="{{ site.profile_image | relative_url }}" alt="Profile photo">
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="content-columns">
+        <div class="projects-section">
+            <h2>PROJECTS</h2>
+            <div class="projects-list">
+                {% for project in site.data.projects %}
+                <div class="project-item">
+                    <div class="project-icon">
+                        <img src="{{ project.icon | relative_url }}" alt="{{ project.title }} icon">
+                    </div>
+                    <div class="project-info">
+                        <h3>
+                            <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.title }}</a>
+                        </h3>
+                        <p>{{ project.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="writing-section">
+            <h2>WRITING</h2>
+            <div class="writing-list">
+                {% for post in site.posts %}
+                {% if post.publish %}
+                <div class="writing-item">
+                    <span class="post-date">{{ post.date | date: "%d.%m.%y" }}</span>
+                    <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- {%-include menu_item.html collection=site.data.menu.entries-%}
 

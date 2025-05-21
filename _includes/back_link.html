@@ -1,1 +1,7 @@
-<a href="{{ "/" }}">{{ site.theme_config.back_home_text }}</a>
+<nav class="header-nav">
+    <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
+    <div class="nav-links">
+        <a href="{{ "/writing" | relative_url }}" class="nav-link">Writing</a>
+        <a href="{{ "/tags" | relative_url }}" class="nav-link">Tags</a>
+    </div>
+</nav>

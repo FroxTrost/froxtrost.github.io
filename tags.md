@@ -1,35 +1,43 @@
 ---
-permalink: /tags.html
 layout: default
-title: wmsa | All Tags
+title: Tags
+permalink: /tags
 ---
 
-<div>{%-include back_link.html-%}</div>
+<div class="tags-container">
+    <h1 class="page-title">Tags</h1>
 
-<h1>All tags</h1>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search posts or tags..." />
+    </div>
 
-<div>
-    {% for tag in site.tags %} {% if tag[1][0].publish %}
-    <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
-    {% endif %} {% endfor %}
-</div>
-
-<!-- <hr><hr/> -->
-
-<div>
-    {% for tag in site.tags %} {% if tag[1][0].publish %}
-    <h2 id="{{ tag[0] | slugify }}">{{ tag | first }}</h2>
-
-    <ul>
-        {% for post in tag[1] %}
-
-        <li>
-            <span>{{- post.date | date: site.theme_config.date_format -}}</span>
-            <a href="{{ post.url | relative_url }}"
-                >{{ post.title | downcase }}</a
-            >
-        </li>
+    <div class="tags-overview">
+        {% for tag in site.tags %}
+        {% if tag[1][0].publish %}
+        <a href="#{{ tag[0] | slugify }}" class="tag-chip">#{{ tag[0] }}</a>
+        {% endif %}
         {% endfor %}
-    </ul>
-    {% endif %} {% endfor %}
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+        <p>No matching posts found</p>
+    </div>
+
+    <div class="tags-list">
+        {% for tag in site.tags %}
+        {% if tag[1][0].publish %}
+        <div class="tag-section" id="{{ tag[0] | slugify }}">
+            <h2>#{{ tag[0] }}</h2>
+            {% for post in tag[1] %}
+            <div class="writing-item">
+                <span class="post-date">{{ post.date | date: "%d.%m.%y" }}</span>
+                <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
 </div>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

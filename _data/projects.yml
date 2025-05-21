@@ -1,0 +1,19 @@
+- title: "BulkGen"
+  description: "Generate Figma Designs from Google Sheets"
+  icon: "/assets/images/projects/bulkgen.png"
+  url: "#"
+
+- title: "Pondy Life"
+  description: "The best places to go in Pondicherry"
+  icon: "/assets/images/projects/pondylife.png"
+  url: "#"
+
+- title: "CheckPlug"
+  description: "Find which travel adapters you need before you leave"
+  icon: "/assets/images/projects/checkplug.png"
+  url: "#"
+
+- title: "Darzi"
+  description: "AI fashion assistant that's always in your pocket"
+  icon: "/assets/images/projects/darzi.png"
+  url: "#" 

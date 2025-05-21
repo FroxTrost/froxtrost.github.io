@@ -2,18 +2,24 @@
 layout: default
 ---
 
-{%-include tag_back_link.html-%}
+<article class="post">
+    <div class="post-header">
+        <time datetime="{{ page.date | date_to_xmlschema }}" class="post-meta">
+            {{ page.date | date: site.date_format | default: "%d.%m.%y" }}
+        </time>
 
-<article>
-    <p class="post-meta">
-        <time datetime="{{ page.date }}"
-            >{{ page.date | date: site.theme_config.date_format }}</time
-        >
-    </p>
+        {% if page.tags %}
+        <div class="post-tags">
+            {% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags#{{ tag | slugify }}" class="tag-chip">#{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
 
-    {% include tags.html %}
+        <h1 class="page-title">{{ page.title }}</h1>
+    </div>
 
-    <h1 class="page-title">{{ page.title }}</h1>
-
-    {{ content }}
+    <div class="post-content">
+        {{ content }}
+    </div>
 </article>
