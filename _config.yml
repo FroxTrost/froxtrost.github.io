@@ -1,11 +1,11 @@
 title: Rajat Chahar
 email: rajatkumarchahar@gmail.com
-description: "Hello! I'm Rajat and you're currently exploring my tiny corner of the internet. I use this space to project my ideas and express my obsessions."
+description: "Hey 👋🏼, I’m Rajat — I build tech, lead teams, and share thoughts on things I learn along the way. This blog is a mix of ideas, experiments, and lessons from building at scale. ❤️"
 baseurl: ""
 url: "https://froxtrost.github.io"
 twitter: https://twitter.com/yourusername
 github: https://github.com/froxtrost
-profile_image: /assets/images/profile.jpg
+profile_image: /assets/images/rajat.jpeg
 
 permalink: /:slug.html
 
@@ -30,3 +30,5 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+safe: false

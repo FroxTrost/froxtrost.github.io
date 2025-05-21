@@ -1,19 +1,16 @@
 ---
 layout: default
-title: Writing
-permalink: /writing
+title: Notes
+permalink: /notes
 ---
 
-<div class="writing-container">
-    <h1 class="page-title">Writing</h1>
+<div class="notes-container">
+    <h1 class="page-title">Notes</h1>
     
     <div class="writing-list">
         {% for post in site.posts %}
         {% if post.publish %}
-        <div class="writing-item">
-            <span class="post-date">{{ post.date | date: "%d.%m.%y" }}</span>
-            <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
-        </div>
+            {% include post_item.html post=post show_tags=false %}
         {% endif %}
         {% endfor %}
     </div>

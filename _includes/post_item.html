@@ -1,6 +1,6 @@
 {% assign post = include.post %}
 <div class="writing-item">
-    <span class="post-date">{{ post.date | date: site.date_format | default: "%d.%m.%y" }}</span>
+    <span class="post-date">{{ post.date | date: "%d.%m.%y" }}</span>
     <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
     {% if include.show_tags and post.tags %}
     <div class="post-tags">

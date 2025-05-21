@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="tag-page">
+    <h1 class="page-title">{{ page.tag }}</h1>
+    
+    <div class="writing-list">
+        {% for post in site.posts %}
+            {% if post.publish and post.tags contains page.tag %}
+                <div class="writing-item">
+                    <span class="post-date">{{ post.date | date: "%d.%m.%y" }}</span>
+                    <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div> 
