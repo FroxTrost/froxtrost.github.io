@@ -95,8 +95,8 @@ blockquote {
 }
 
 code, pre, .highlighter-rouge {
-    font-family: "Inter", "Andale Mono", "Source Code Pro", monospace;
-    background: #f9fafb;
+    font-family: "Andale Mono", "Source Code Pro", monospace;
+    background: #f9fafc;
     color: #374151;
     border-radius: 6px;
     padding: 0.2em 0.4em;
@@ -372,6 +372,7 @@ img {
     line-height: 1.6;
     margin-bottom: 2rem;
     color: $color-text;
+    font-weight: 450;
 }
 
 .summary-section {
@@ -382,6 +383,10 @@ img {
 .notes-section h2 {
     margin-top: 0;
     margin-bottom: 1rem;
+}
+
+.notes-section {
+    margin-bottom: 2rem;
 }
 
 .summary-list {
