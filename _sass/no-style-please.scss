@@ -31,32 +31,43 @@ body {
     padding: 0 2rem;
 }
 
+// Typography Scale (adjusted for 100% magnification)
+$h1-size: 2.1rem;      // 33.6px
+$h2-size: 1.7rem;      // 27.2px
+$h3-size: 1.4rem;      // 22.4px
+$h4-size: 1.2rem;      // 19.2px
+$base-size: 1.05rem;   // 16.8px
+
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    letter-spacing: -0.06em;
     color: $color-text;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 
 h1 {
-    font-size: 2.3rem;
-    margin-top: 0;
-    margin-bottom: 0.7rem;
+    font-size: $h1-size;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
 }
 
 h2 {
-    font-size: 1.4rem;
-    color: #4b5563;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    margin-top: 2.5rem;
+    font-size: $h2-size;
+    margin-top: 2.2rem;
+    margin-bottom: 0.8rem;
 }
 
 h3 {
-    font-size: 1.1rem;
-    color: #4b5563;
-    font-weight: 500;
+    font-size: $h3-size;
+    margin-top: 1.8rem;
+    margin-bottom: 0.6rem;
+}
+
+h4 {
+    font-size: $h4-size;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .post-meta, .meta, time {
@@ -68,15 +79,36 @@ h3 {
 }
 
 p {
-    margin: 1.3rem 0;
+    margin: 0.8rem 0;
     color: #374151;
-    font-size: 1.08rem;
-    font-weight: 400;
+    font-size: $base-size;
+    line-height: 1.75;
+}
+
+// Lists
+ul, ol {
+    margin: 0.6rem 0;
+    padding-left: 1.4rem;
+    font-size: $base-size;
+
+    // Nested lists
+    ul, ol {
+        margin: 0.4rem 0;
+        padding-left: 1.6rem;
+        font-size: 1.05em;  // Slightly larger than parent
+    }
 }
 
 li {
-    margin: 0.5rem 0;
+    margin: 0.4rem 0;
     color: #374151;
+    line-height: 1.7;
+
+    // Nested list items
+    li {
+        margin: 0.35rem 0;
+        color: #4b5563;  // Slightly different color for visual hierarchy
+    }
 }
 
 hr {
@@ -86,12 +118,12 @@ hr {
 }
 
 blockquote {
-    font-style: italic;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
     border-left: 3px solid $color-border;
     background: #fafafa;
-    padding: 1.5rem 2rem;
-    margin: 1.5rem 0;
     color: #4b5563;
+    font-style: italic;
 }
 
 code, pre, .highlighter-rouge {
@@ -111,7 +143,7 @@ code {
 
 // Code blocks
 div.highlighter-rouge {
-    margin: 1.5rem 0;
+    margin: 1.25rem 0;
     background: #eceff1;
     border: 1px solid #eaeaea;
     border-radius: 12px;
@@ -201,36 +233,71 @@ img {
     padding: 1.5rem 0;
     margin-bottom: 2rem;
     border-bottom: 1px solid $color-border;
-}
 
-.header-nav .site-title {
-    color: $color-text;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-}
+    .site-title {
+        color: $color-text;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: opacity 0.2s ease;
 
-.header-nav .nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
+        &:hover {
+            opacity: 0.8;
+        }
+    }
 
-.header-nav .nav-link {
-    color: $color-text-muted;
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.2s ease;
-    font-weight: 600;
-}
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+    }
 
-.header-nav .nav-link:hover {
-    color: $color-text;
+    .nav-link {
+        color: $color-text-muted;
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 0.5rem 0;
+        position: relative;
+        transition: color 0.2s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: width 0.2s ease;
+        }
+
+        &:hover {
+            color: #2563eb;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &.active {
+            color: $color-text;
+            
+            &::after {
+                width: 100%;
+                background-color: $color-text;
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {
     .header-nav {
         padding: 1rem 0;
         margin-bottom: 0.75rem;
+
+        .nav-link {
+            font-size: 0.8rem;
+        }
     }
 }
 
@@ -254,6 +321,12 @@ img {
 .post-content {
     margin-top: 0;
     margin-bottom: 4rem;
+    h1 + p,
+    h2 + p,
+    h3 + p,
+    h4 + p {
+        margin-top: 0.5rem;
+    }
 }
 
 /* Tags Page Styles */
@@ -360,12 +433,12 @@ img {
     color: $color-text;
     text-decoration: none;
     font-size: 1rem;
-    transition: color 0.2s ease;
     margin: 0;
 }
 
 .writing-item .post-title:hover {
-    color: $color-text-muted;
+    color: $color-text;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -610,5 +683,115 @@ img {
 
     .post-tags {
         justify-content: flex-start;
+    }
+}
+
+// Link styles
+a {
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: #2563eb;
+    
+    &:hover {
+        color: #1d4ed8;
+    }
+}
+
+// Post title - no animations
+.post-title {
+    color: $color-text;
+    text-decoration: none;
+}
+
+.writing-item .post-title {
+    color: $color-text;
+    text-decoration: none;
+}
+
+// Remove any transition or hover effects from post titles
+.writing-item .post-title:hover,
+.post-title:hover {
+    color: $color-text;
+    text-decoration: none;
+}
+
+// Subtle card hover effect
+.writing-item {
+    transition: transform 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+    
+    &:hover {
+        // transform: translateX(4px);
+        background: rgba(0, 0, 0, 0.02);
+    }
+}
+
+// Image hover effect
+.profile-image img {
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+// Tag hover animation
+.tag-chip {
+    transition: all 0.2s ease;
+    transform-origin: center;
+    
+    &:hover {
+        transform: translateY(-1px);
+    }
+}
+
+// Code block enhancement
+div.highlighter-rouge {
+    position: relative;
+    transition: all 0.2s ease;
+    
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+}
+
+// Social icons hover effect
+.social-icon {
+    transition: transform 0.2s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+    
+    svg {
+        transition: all 0.2s ease;
+        
+        &:hover {
+            fill: #2563eb;
+        }
+    }
+}
+
+// Reading progress bar
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2563eb;
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+// Estimated reading time
+.reading-time {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-left: 1rem;
+    &::before {
+        content: '•';
+        margin-right: 1rem;
     }
 }
