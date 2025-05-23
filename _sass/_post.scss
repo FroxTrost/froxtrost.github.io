@@ -1,0 +1,236 @@
+// Post styling
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    @media (max-width: 600px) {
+        padding: 1.5rem 1rem;
+    }
+}
+
+.post-header {
+    margin-bottom: 2rem;
+
+    @media (max-width: 600px) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.post-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+
+    @media (max-width: 600px) {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+}
+
+.post-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 600px) {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+}
+
+// Post meta styling
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    font-size: 0.9em;
+    color: var(--text-muted);
+    gap: 1rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+.post-meta-left {
+    white-space: nowrap;
+}
+
+.post-meta-right {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+        width: 100%;
+        gap: 0.4rem;
+    }
+}
+
+.tag-chip {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--background-alt);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9em;
+
+    @media (max-width: 600px) {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85em;
+    }
+
+    &:hover {
+        background-color: var(--text-muted);
+        color: var(--background);
+    }
+}
+
+// Post content styling
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+
+    @media (max-width: 600px) {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+
+        @media (max-width: 600px) {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        margin: 1.5rem 0 0.75rem;
+
+        @media (max-width: 600px) {
+            font-size: 1.25rem;
+            margin: 1.25rem 0 0.5rem;
+        }
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 600px) {
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    ul, ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 600px) {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        margin: 1.5rem 0;
+    }
+
+    blockquote {
+        border-left: 4px solid var(--text-muted);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: var(--text-muted);
+
+        @media (max-width: 600px) {
+            margin: 1.25rem 0;
+            padding-left: 0.75rem;
+        }
+    }
+
+    code {
+        font-family: monospace;
+        background-color: var(--background-alt);
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+        font-size: 0.9em;
+    }
+
+    pre {
+        background-color: var(--background-alt);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+
+        @media (max-width: 600px) {
+            padding: 0.75rem;
+            margin: 1.25rem 0;
+        }
+
+        code {
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+}
+
+// Related posts section
+.related-posts {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--text-muted);
+
+    @media (max-width: 600px) {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+
+        @media (max-width: 600px) {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 0.75rem;
+
+            a {
+                color: var(--text-main);
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: var(--text-muted);
+                }
+            }
+        }
+    }
+} 

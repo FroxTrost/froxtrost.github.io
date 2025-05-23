@@ -4,10 +4,14 @@
     {% include head.html %}
 </head>
 <body>
-    <main class="w">
+    <div class="w">
         {% include navigation.html %}
-        {{ content }}
-    </main>
+        <main>
+            {{ content }}
+        </main>
+    </div>
+
+    <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
 
     {% if site.custom_scripts %}
         {{ site.custom_scripts }}

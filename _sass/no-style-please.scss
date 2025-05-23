@@ -4,9 +4,55 @@ $color-text-muted: #8A898C;
 $color-border: #F1F1F1;
 $color-background: #F6F6F7;
 
+:root {
+    // Light theme colors
+    --color-text: #{$color-text};
+    --color-text-muted: #374151;
+    --color-border: #{$color-border};
+    --color-background: #{$color-background};
+    --color-code-bg: #eceff1;
+    --color-inline-code-bg: #f1f1f4;
+    --color-blockquote-bg: #fafafa;
+    --color-border-hover: #E5E5E5;
+    --color-progress-bar: #2563eb;
+    --color-paragraph: #374151;
+    --color-blockquote-text: #4b5563;
+    --color-link: #2563eb;
+    --color-link-hover: #1d4ed8;
+    --color-focus-text: #E11D48;  // Deep Rose for light mode
+    
+    // Theme transition
+    --transition-duration: 0.3s;
+}
+
+[data-theme="dark"] {
+    --color-text: #E4E4E7;
+    --color-text-muted: #D1D5DB;
+    --color-border: #27272A;
+    --color-background: #18181B;
+    --color-code-bg: #27272A;
+    --color-inline-code-bg: #27272A;
+    --color-blockquote-bg: #27272A;
+    --color-border-hover: #323232;
+    --color-progress-bar: #60A5FA;
+    --color-paragraph: #D1D5DB;
+    --color-blockquote-text: #9CA3AF;
+    --color-link: #60A5FA;
+    --color-link-hover: #93C5FD;
+    --color-focus-text: #FB7185;  // Soft coral for dark mode
+}
+
+// Apply transition to color changes
+*, *::before, *::after {
+    transition: background-color var(--transition-duration) ease,
+                color var(--transition-duration) ease,
+                border-color var(--transition-duration) ease,
+                box-shadow var(--transition-duration) ease;
+}
+
 html,
 body {
-    background: $color-background;
+    background: var(--color-background);
 }
 
 html {
@@ -14,7 +60,7 @@ html {
 }
 
 body {
-    color: $color-text;
+    color: var(--color-text);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.7;
@@ -39,7 +85,7 @@ $h4-size: 1.2rem;      // 19.2px
 $base-size: 1.05rem;   // 16.8px
 
 h1, h2, h3, h4, h5, h6 {
-    color: $color-text;
+    color: var(--color-text);
     font-weight: 600;
     letter-spacing: -0.02em;
     margin: 0;
@@ -80,7 +126,7 @@ h4 {
 
 p {
     margin: 0.8rem 0;
-    color: #374151;
+    color: var(--color-paragraph);
     font-size: $base-size;
     line-height: 1.75;
 }
@@ -101,28 +147,28 @@ ul, ol {
 
 li {
     margin: 0.4rem 0;
-    color: #374151;
+    color: var(--color-paragraph);
     line-height: 1.7;
 
     // Nested list items
     li {
         margin: 0.35rem 0;
-        color: #4b5563;  // Slightly different color for visual hierarchy
+        color: var(--color-text-muted);
     }
 }
 
 hr {
     margin: 2.5rem 0;
     border: none;
-    border-top: 1px solid $color-border;
+    border-top: 1px solid var(--color-border);
 }
 
 blockquote {
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
-    border-left: 3px solid $color-border;
-    background: #fafafa;
-    color: #4b5563;
+    border-left: 3px solid var(--color-border);
+    background: var(--color-blockquote-bg);
+    color: var(--color-blockquote-text);
     font-style: italic;
 }
 
@@ -136,7 +182,7 @@ code, pre, .highlighter-rouge {
 // Inline code
 code {
     padding: 0.2em 0.4em;
-    background: #f1f1f4;
+    background: var(--color-inline-code-bg);
     border-radius: 4px;
     border: none;
 }
@@ -144,7 +190,7 @@ code {
 // Code blocks
 div.highlighter-rouge {
     margin: 1.25rem 0;
-    background: #eceff1;
+    background: var(--color-code-bg);
     border: 1px solid #eaeaea;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.04);
@@ -232,10 +278,10 @@ img {
     justify-content: space-between;
     padding: 1.5rem 0;
     margin-bottom: 2rem;
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px solid var(--color-border);
 
     .site-title {
-        color: $color-text;
+        color: var(--color-text);
         text-decoration: none;
         font-weight: 500;
         font-size: 1rem;
@@ -252,7 +298,7 @@ img {
     }
 
     .nav-link {
-        color: $color-text-muted;
+        color: var(--color-text-muted);
         text-decoration: none;
         font-size: 0.875rem;
         font-weight: 600;
@@ -280,11 +326,11 @@ img {
         }
 
         &.active {
-            color: $color-text;
+            color: var(--color-text);
             
             &::after {
                 width: 100%;
-                background-color: $color-text;
+                background-color: var(--color-text);
             }
         }
     }
@@ -309,13 +355,13 @@ img {
     margin-top: 0;
     margin-bottom: 1.5rem;
     font-size: 2rem;
-    color: $color-text;
+    color: var(--color-text);
     line-height: 1.3;
 }
 
 .post {
     margin-bottom: 14rem;
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .post-content {
@@ -337,7 +383,7 @@ img {
 .tags-container .page-title {
     margin-bottom: 2rem;
     font-size: 2rem;
-    color: $color-text;
+    color: var(--color-text);
 }
 
 .search-container {
@@ -351,8 +397,8 @@ img {
     font-size: 0.875rem;
     border: none;
     border-radius: 6px;
-    background: $color-border;
-    color: $color-text;
+    background: var(--color-border);
+    color: var(--color-text);
     transition: all 0.2s ease;
     font-family: inherit;
 }
@@ -363,7 +409,7 @@ img {
 }
 
 #search-input::placeholder {
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     font-size: 0.875rem;
 }
 
@@ -375,25 +421,25 @@ img {
 }
 
 .tag-chip {
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
-    background: $color-border;
+    background: var(--color-border);
     border-radius: 4px;
     transition: all 0.2s ease;
     font-weight: 500;
 }
 
 .tag-chip:hover {
-    background: darken($color-border, 5%);
-    color: $color-text;
+    background: var(--color-border-hover);
+    color: var(--color-text);
 }
 
 .no-results {
     text-align: center;
     padding: 3rem 0;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
 }
 
 .tags-list {
@@ -409,7 +455,7 @@ img {
 
 .tag-section h2 {
     font-size: 1.25rem;
-    color: $color-text;
+    color: var(--color-text);
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
@@ -422,7 +468,7 @@ img {
 }
 
 .writing-item .post-date {
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     font-size: 0.875rem;
     min-width: 4.5rem;
     font-feature-settings: "tnum";
@@ -430,14 +476,15 @@ img {
 }
 
 .writing-item .post-title {
-    color: $color-text;
+    color: var(--color-text);
     text-decoration: none;
     font-size: 1rem;
     margin: 0;
+    font-weight: 500;
 }
 
 .writing-item .post-title:hover {
-    color: $color-text;
+    color: var(--color-text);
     text-decoration: none;
 }
 
@@ -495,7 +542,7 @@ img {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    color: $color-text;
+    color: var(--color-text);
     font-weight: 450;
 }
 
@@ -521,7 +568,7 @@ img {
 
 .summary-list li {
     margin: 0.7rem 0;
-    color: $color-text;
+    color: var(--color-text);
 }
 
 .social-links {
@@ -530,12 +577,12 @@ img {
 }
 
 .social-icon {
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     transition: color 0.2s ease;
 }
 
 .social-icon:hover {
-    color: $color-text;
+    color: var(--color-text);
 }
 
 .profile-image {
@@ -608,18 +655,18 @@ img {
 }
 
 .project-info h3 a {
-    color: $color-text;
+    color: var(--color-text);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .project-info h3 a:hover {
-    color: $color-text-muted;
+    color: var(--color-text-muted);
 }
 
 .project-info p {
     margin: 0;
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
 }
 
@@ -636,15 +683,11 @@ img {
     }
 }
 
-.post-meta-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
 .post-meta {
-    color: $color-text-muted;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-text-muted);
     font-size: 0.875rem;
     font-feature-settings: "tnum";
     margin: 0;
@@ -659,27 +702,22 @@ img {
 }
 
 .tag-chip {
-    color: $color-text-muted;
+    color: var(--color-text-muted);
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
-    background: $color-border;
+    background: var(--color-border);
     border-radius: 4px;
     transition: all 0.2s ease;
     font-weight: 500;
 }
 
 .tag-chip:hover {
-    background: darken($color-border, 5%);
-    color: $color-text;
+    background: var(--color-border-hover);
+    color: var(--color-text);
 }
 
 @media (max-width: 768px) {
-    .post-meta-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
 
     .post-tags {
         justify-content: flex-start;
@@ -690,28 +728,28 @@ img {
 a {
     transition: all 0.2s ease;
     text-decoration: none;
-    color: #2563eb;
+    color: var(--color-link);
     
     &:hover {
-        color: #1d4ed8;
+        color: var(--color-link-hover);
     }
 }
 
 // Post title - no animations
 .post-title {
-    color: $color-text;
+    color: var(--color-text);
     text-decoration: none;
 }
 
 .writing-item .post-title {
-    color: $color-text;
+    color: var(--color-text);
     text-decoration: none;
 }
 
 // Remove any transition or hover effects from post titles
 .writing-item .post-title:hover,
 .post-title:hover {
-    color: $color-text;
+    color: var(--color-text);
     text-decoration: none;
 }
 
@@ -780,7 +818,7 @@ div.highlighter-rouge {
     left: 0;
     width: 0;
     height: 2px;
-    background: #2563eb;
+    background: var(--color-progress-bar);
     z-index: 1000;
     transition: width 0.1s ease;
 }
@@ -793,5 +831,223 @@ div.highlighter-rouge {
     &::before {
         content: '•';
         margin-right: 1rem;
+    }
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+        background-color: var(--color-border);
+    }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--color-text-muted);
+    }
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        padding: 0.4rem;
+        font-size: 1rem;
+    }
+}
+
+// Now & Next Section Styles
+.now-and-next {
+    margin: 4rem 0;
+    
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+}
+
+.thought-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.thought-card {
+    background: var(--color-blockquote-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        
+        .emoji-container {
+            transform: scale(1.1) rotate(5deg);
+        }
+    }
+    
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+    }
+    
+    p {
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+.emoji-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+}
+
+.next-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
+        margin: 0.5rem 0;
+        
+        .bullet {
+            color: var(--color-text-muted);
+            opacity: 0.5;
+        }
+    }
+}
+
+.progress-indicator {
+    margin-top: 1rem;
+    background: var(--color-border);
+    height: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+    
+    .progress-bar {
+        height: 100%;
+        background: var(--color-progress-bar);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+    }
+}
+
+// Dark mode adjustments
+[data-theme="dark"] {
+    .thought-card {
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .now-and-next {
+        margin: 2rem 0;
+        
+        .section-title {
+            font-size: 1.3rem;
+        }
+    }
+    
+    .thought-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .thought-card {
+        padding: 1.25rem;
+    }
+}
+
+// Current Focus Styles
+.current-focus {
+    margin: 2.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.focus-emoji {
+    font-size: 1.5rem;
+    display: inline-block;
+    transform-origin: bottom center;
+    
+    @keyframes typing {
+        0%, 100% { 
+            transform: rotate(0deg); 
+        }
+        25% { 
+            transform: rotate(-3deg) translateY(-1px); 
+        }
+        75% { 
+            transform: rotate(3deg) translateY(-1px); 
+        }
+    }
+    
+    animation: typing 0.8s ease-in-out infinite;
+}
+
+.focus-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-focus-text);
+
+    // Make everything except the prefix italic
+    > :not(.focus-prefix) {
+        font-style: italic;
+    }
+}
+
+.focus-prefix {
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-right: 0.3rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .current-focus {
+        margin: 2rem 0;
+    }
+
+    .focus-emoji {
+        font-size: 1.25rem;
+    }
+
+    .focus-text {
+        font-size: 1rem;
     }
 }

@@ -1,34 +1,81 @@
-title: Rajat Chahar
+# Site Settings
+title: "Rajat Chahar | Tech Lead & System Design Engineer"
 email: rajatkumarchahar@gmail.com
-description: "Hey 👋🏼, I’m Rajat — I build tech, lead teams, and share thoughts on things I learn along the way. This blog is a mix of ideas, experiments, and lessons from building at scale. ❤️"
+description: "Tech Lead sharing insights on distributed systems, Rust programming, and system design. Practical tutorials and real-world engineering experiences in WebRTC, CRDT, and WebAssembly."
 baseurl: ""
 url: "https://froxtrost.github.io"
-twitter: https://twitter.com/yourusername
 github: https://github.com/froxtrost
+linkedin: https://linkedin.com/in/yourusername
 profile_image: /assets/images/rajat.jpeg
 
-permalink: /:slug.html
+# SEO Settings
+tagline: "Building scalable systems and sharing knowledge"
+keywords: "rust programming, distributed systems, webrtc, system design, tech leadership, software architecture, crdt, webassembly"
+author:
+  name: Rajat Chahar
+  image: /assets/images/rajat.jpeg
+  bio: "Tech Lead with expertise in distributed systems and real-time collaboration. Writing about Rust, WebRTC, and system design."
 
-favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
+# Social & Professional
+social:
+  name: Rajat Chahar
+  links:
+    - https://github.com/froxtrost
+    - https://linkedin.com/in/yourusername
 
-theme: no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
+# Open Graph/Twitter Cards
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-social.jpg
+      og_type: website
+      twitter_card: summary_large_image
+
+# Content Organization
+permalink: /:year/:month/:day/:title:output_ext
+collections:
+  topics:
+    output: true
+    permalink: /topics/:name/
+
+# Theme settings
+remote_theme: riggraz/no-style-please
+theme: no-style-please
 
 theme_config:
-  appearance: "auto" # can be "light", "dark" or "auto"
-  back_home_text: "←" # customize text for homepage link in post layout
-  date_format: "%d-%m-%Y" # customize how date is formatted
-  show_description: false # show blog description in home page
+  appearance: "auto"
+  back_home_text: "←"
+  date_format: "%d-%m-%Y"
+  show_description: true
 
-sass:
-  style: compressed
-
+# Build settings
 markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
 
-safe: false
+# Sitemap settings
+sitemap:
+  filename: "/sitemap.xml"
+  exclude:
+    - "/atom.xml"
+    - "/feed.xml"
+    - "/feed/index.xml"
+  include_posts:
+    - "/index.html"
+  change_frequency_name: "daily"
+  priority_name: "0.8"
+
+# Google Analytics
+google_analytics: UA-XXXXXXXX-X
+
+# Current Focus
+currently_writing: "Building a real-time collaborative markdown editor with WebRTC and CRDT"

@@ -1,7 +1,8 @@
-<nav class="header-nav w">
-    <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
-    <div class="nav-links">
-        <a href="{{ "/notes" | relative_url }}" class="nav-link">Notes</a>
-        <a href="{{ "/tags" | relative_url }}" class="nav-link">Tags</a>
-    </div>
-</nav> 
+<header class="header-nav">
+    <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+    <nav class="nav-links">
+        <a href="{{ '/notes' | relative_url }}" class="nav-link {% if page.url contains '/notes' %}active{% endif %}">Notes</a>
+        <a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains '/tags' %}active{% endif %}">Tags</a>
+        <button id="theme-toggle" class="theme-toggle" onclick="setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" aria-label="Toggle theme">🌙</button>
+    </nav>
+</header> 

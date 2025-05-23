@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://froxtrost.github.io/sitemap.xml
+
+# Disallow specific paths
+Disallow: /assets/
+Disallow: /404.html
+Disallow: /tags/
+Disallow: /categories/ 
